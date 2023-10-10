@@ -37,7 +37,17 @@ export default function Form() {
         setLastname("");
         setPhone("");
     }
-
+    const handleCancel = (e) => {
+        e.preventDefault();
+        setAddress("");
+        setCompany("");
+        setDob("");
+        setEmail("");
+        setFirstname("");
+        setId("");
+        setLastname("");
+        setPhone("");
+    }
     return (
         <form>
             <div className="space-y-12 sm:max-w-[1440px] sm:mx-10">
@@ -201,7 +211,7 @@ export default function Form() {
             </div>
 
             <div className="mt-6 flex items-center justify-end gap-x-6">
-                <button type="button" className="text-sm font-semibold leading-6 text-gray-900">
+                <button onClick={handleCancel} type="button" className="text-sm font-semibold leading-6 text-gray-900">
                     Cancel
                 </button>
                 <button

@@ -25,11 +25,14 @@ const Navbar = () => {
 
     return (
         <div className='rounded-div flex items-center justify-between h-20 font-bold sm:mx-4'>
-            <Link to='/home'>
-                <h1 className='text-2xl'>Registration</h1>
-            </Link>
+
+            <h1 className='text-2xl'>Loan application System</h1>
+
             {user?.email ? (
                 <div className='hidden sm:flex'>
+                    <Link to='/home'>
+                        <h1 className='p-4'>Registration</h1>
+                    </Link>
                     <Link to='/customers' className='p-4'>Customers </Link>
                     <Link to='/records' className='p-4'>Records </Link>
                     <button onClick={handlelogout}>Sign Out</button>
