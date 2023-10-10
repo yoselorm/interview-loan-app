@@ -48,30 +48,37 @@ const Navbar = () => {
             </div>
 
             {/* mobile */}
-            <div className={nav ? 'md:hidden fixed left-0 top-20 flex flex-col items-center justify-between w-full h-[90%] bg-primary ease-in duration-300 z-10' : 'fixed left-[-100%] top-20 flex flex-col items-center justify-between w-full h-[90%] bg-primary ease-in duration-300 z-10'}>
-                <ul className='w-full p-4'>
+            <div className={nav ? 'md:hidden fixed left-0 top-20 flex flex-col items-center justify-between w-full h-[90%] bg-white ease-in duration-300 z-10' : 'fixed left-[-100%] top-20 flex flex-col items-center justify-between w-full h-[90%] bg-primary ease-in duration-300 z-10'}>
+                {user?.email ? (<ul className='w-full p-4'>
                     <li onClick={handleNav} className='border-b py-6'>
-                        <Link to='/'>Home</Link>
+                        <Link to='/home'>Registration</Link>
                     </li>
                     <li onClick={handleNav} className='border-b py-6'>
-                        <Link to='/account'>Account</Link>
+                        <Link to='/customers'>Customers</Link>
                     </li>
 
-                </ul>
+                </ul>) : (<ul className='w-full p-4'>
+                    <li onClick={handleNav} className='border-b py-6'>
+                        <Link to='/'>Registration</Link>
+                    </li>
+                    <li onClick={handleNav} className='border-b py-6'>
+                        <Link to='/'>Customers</Link>
+                    </li>
+
+                </ul>)}
+
                 {user?.email ? (<div className='flex flex-col w-full p-4'>
-                    <Link to='/account'>
-                        <button onClick={handleNav} className='w-full my-2 p-3 bg-primary text-primary border border-secondary rounded-2xl shadow-xl'>Account</button>
+                    <Link to='/records'>
+                        <button onClick={handleNav} className='w-full my-2 p-3 bg-primary text-primary border border-secondary rounded-2xl shadow-xl'>records</button>
                     </Link>
-                    <Link to='/signup'>
+                    <Link to='/'>
                         <button onClick={handlelogout} className='w-full my-2 p-3 bg-button text-btnText rounded-2xl shadow-xl'>Sign Out</button>
                     </Link>
                 </div>) : (<div className='flex flex-col w-full p-4'>
-                    <Link to='/signin'>
+                    <Link to='/'>
                         <button onClick={handleNav} className='w-full my-2 p-3 bg-primary text-primary border border-secondary rounded-2xl shadow-xl'>Sign In</button>
                     </Link>
-                    <Link to='/signup'>
-                        <button onClick={handleNav} className='w-full my-2 p-3 bg-button text-btnText rounded-2xl shadow-xl'>Sign Up</button>
-                    </Link>
+
                 </div>)}
 
             </div>
