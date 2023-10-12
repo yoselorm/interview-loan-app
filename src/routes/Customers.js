@@ -32,27 +32,29 @@ const Customers = () => {
                     placeholder='Search customers'
                 />
             </div>
+            <div className='flex flex-wrap gap-4'>
 
-            {customerData
-                .filter((value) => {
-                    if (search === '') {
-                        return true; // Return all customers if search is empty
-                    } else if (
-                        (value.firstname.toLowerCase().includes(search.toLowerCase()) ||
-                            value.lastname.toLowerCase().includes(search.toLowerCase()) ||
-                            value.email.toLowerCase().includes(search.toLowerCase()))
-                    ) {
-                        return true;
-                    }
-                    return false;
-                })
-                .map((items) => {
-                    return (
-                        <div className='sm:grid sm:grid-cols-2' key={items.id}>
-                            <CustomerInfo items={items} />
-                        </div>
-                    );
-                })}
+                {customerData
+                    .filter((value) => {
+                        if (search === '') {
+                            return true; // Return all customers if search is empty
+                        } else if (
+                            (value.firstname.toLowerCase().includes(search.toLowerCase()) ||
+                                value.lastname.toLowerCase().includes(search.toLowerCase()) ||
+                                value.email.toLowerCase().includes(search.toLowerCase()))
+                        ) {
+                            return true;
+                        }
+                        return false;
+                    })
+                    .map((items) => {
+                        return (
+                            <div className='' key={items.id}>
+                                <CustomerInfo items={items} />
+                            </div>
+                        );
+                    })}
+            </div>
         </div>
     );
 };

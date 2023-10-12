@@ -17,7 +17,7 @@ const LoanRecords = ({ items }) => {
     return (
         <div className='mb-4'>
 
-            <div className={items.paid ? 'w-[350px] border-b-1 bg-green-100 border-b-gray-500 shadow-xl mx-auto mt-5 p-2 ' : ' w-[350px] border-b-1 bg-slate-100 border-b-gray-500 shadow-xl mx-auto mt-5 p-2 '}>
+            <div className={items.paid ? 'w-[350px] border-b-1 bg-green-100 border-b-gray-500 shadow-xl mx-auto mt-5 p-2 ' : ' w-[350px] border-b-1 bg-red-100 border-b-gray-500 shadow-xl mx-auto mt-5 p-2 '}>
                 <div className='flex flex-col justify-center items-center '>
                     <div className='mb-5'>
                         <div className='font-bold text-2xl'><p>{items.lastname},{items.firstname}</p></div>

@@ -29,7 +29,7 @@ const Navbar = () => {
             <h1 className='text-2xl'>Loan application System</h1>
 
             {user?.email ? (
-                <div className='hidden sm:flex'>
+                <div className='hidden md:flex'>
                     <Link to='/home'>
                         <h1 className='p-4'>Registration</h1>
                     </Link>

@@ -20,7 +20,7 @@ const Records = () => {
     }, []);
     console.log(records)
     return (
-        <div >
+        <div>
             <div className='flex flex-row justify-center'>
                 <input
                     value={search}
@@ -30,27 +30,30 @@ const Records = () => {
                     placeholder='Search customers'
                 />
             </div>
+            <div className='sm:flex flex flex-wrap gap-4'>
 
-            {
-                records.filter((value) => {
-                    if (search === '') {
-                        return true;
-                    } else if (
-                        (value.firstname.toLowerCase().includes(search.toLowerCase()) ||
-                            value.lastname.toLowerCase().includes(search.toLowerCase()) ||
-                            value.email.toLowerCase().includes(search.toLowerCase()))
-                    ) {
-                        return true;
-                    }
-                    return false;
-                })
-                    .map((items) => {
-                        return (
-                            <div className='sm:grid sm:grid-cols-2' key={items.id}>
-                                <LoanRecords items={items} />
-                            </div>
-                        );
-                    })}
+
+                {
+                    records.filter((value) => {
+                        if (search === '') {
+                            return true;
+                        } else if (
+                            (value.firstname.toLowerCase().includes(search.toLowerCase()) ||
+                                value.lastname.toLowerCase().includes(search.toLowerCase()) ||
+                                value.email.toLowerCase().includes(search.toLowerCase()))
+                        ) {
+                            return true;
+                        }
+                        return false;
+                    })
+                        .map((items) => {
+                            return (
+                                <div className=" w-[400px]" key={items.id}>
+                                    <LoanRecords items={items} />
+                                </div>
+                            );
+                        })}
+            </div>
         </div>
     );
 }
