@@ -1,11 +1,23 @@
+import { doc, updateDoc } from 'firebase/firestore';
 import React from 'react';
+import { db } from '../firebase';
 
 const LoanRecords = ({ items }) => {
     console.log(items)
+    const handlePaid = async (e) => {
+        e.preventDefault();
+        try {
+            await updateDoc(doc(db, 'loans', items.id), {
+                paid: 'true'
+            })
+        } catch (error) {
+            console.log(error)
+        }
+    }
     return (
-        <div>
+        <div className='mb-4'>
 
-            <div className=' w-[400px] border-b-1 bg-slate-100 border-b-gray-500 shadow-xl mx-auto mt-5 p-4 '>
+            <div className={items.paid ? 'w-[350px] border-b-1 bg-green-100 border-b-gray-500 shadow-xl mx-auto mt-5 p-2 ' : ' w-[350px] border-b-1 bg-slate-100 border-b-gray-500 shadow-xl mx-auto mt-5 p-2 '}>
                 <div className='flex flex-col justify-center items-center '>
                     <div className='mb-5'>
                         <div className='font-bold text-2xl'><p>{items.lastname},{items.firstname}</p></div>
@@ -22,7 +34,7 @@ const LoanRecords = ({ items }) => {
 
                 </div>
                 <div className='flex justify-center mt-5 gap-2'>
-                    <button className='px-2 w-20 h-10 rounded-lg hover:text-black hover:bg-white text-white bg-[#3282B8]'>paid</button>
+                    <button className={items.paid ? 'hidden' : 'px-2 w-20 h-10 rounded-lg hover:text-black hover:bg-white text-white bg-[#3282B8] flex justify-center items-center'} onClick={handlePaid}>paid</button>
 
                 </div>
             </div>

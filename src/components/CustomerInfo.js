@@ -28,7 +28,8 @@ const CustomerInfo = ({ items }) => {
             lastname: items.lastname,
             firstname: items.firstname,
             id: items.id,
-            phone: items.phone
+            phone: items.phone,
+            paid: false
         });
         setRate('')
         setTenure('')
@@ -41,7 +42,6 @@ const CustomerInfo = ({ items }) => {
         toggle ? (<div>
 
             <div className='sm:flex gap-4 sm:max-w-[850px] max-w-[600px] sm:justify-between mx-auto min-h-[600px] px-4 py-20 sm:items-center'>
-                {items.firstname}
                 <form className='sm:w-[60%]' >
                     <div className='my-4'>
                         <label>Loan amount</label>

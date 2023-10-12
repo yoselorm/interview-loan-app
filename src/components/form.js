@@ -12,9 +12,14 @@ export default function Form() {
     const [phone, setPhone] = useState('')
     const [address, setAddress] = useState('');
     const [marital, setMarital] = useState('')
+    const [error, setError] = useState('')
 
     const handleSubmit = async (e) => {
         e.preventDefault();
+        if (!email || !firstname || !lastname || !dob || !company || !id || !phone || !address || !marital) {
+            setError('Please fill out all fields.');
+            return;
+        }
 
         await setDoc(doc(db, "customers", id), {
             email,
@@ -47,6 +52,7 @@ export default function Form() {
         setId("");
         setLastname("");
         setPhone("");
+        setError('')
     }
     return (
         <form>
@@ -54,7 +60,7 @@ export default function Form() {
                 <div className="border-b border-gray-900/10 pb-12">
                     <h2 className="text-base font-semibold leading-7 text-gray-900">Customer Information</h2>
 
-
+                    <h3 className="text-base font-semibold leading-7 text-red-400">{error}</h3>
                     <div className="mt-5 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                         <div className="sm:col-span-3">
                             <label htmlFor="first-name" className="block text-sm font-medium leading-6 text-gray-900">
