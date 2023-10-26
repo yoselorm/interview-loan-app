@@ -38,9 +38,9 @@ const Records = () => {
                         if (search === '') {
                             return true;
                         } else if (
-                            (value.firstname.toLowerCase().includes(search.toLowerCase()) ||
-                                value.lastname.toLowerCase().includes(search.toLowerCase()) ||
-                                value.email.toLowerCase().includes(search.toLowerCase()))
+                            (value.firstname?.toLowerCase().includes(search.toLowerCase()) ||
+                                value.lastname?.toLowerCase().includes(search.toLowerCase()) ||
+                                value.email?.toLowerCase().includes(search.toLowerCase()))
                         ) {
                             return true;
                         }
